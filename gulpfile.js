@@ -9,12 +9,13 @@ var vendorSrcJs = [
 	"bower_components/ui-router/release/angular-ui-router.min.js",
 	"bower_components/angular-bootstrap/ui-bootstrap.min.js"
 ];
-
+var vendorSrcCss = ["bower_components/bootstrap/dist/css/bootstrap.min.css"];
 var srcHtml = ["src/index.html"];
+var srcHtmlTemplates = ["src/**/*.html"];
 var srcSass = ["./src/**/*.scss"];
-var srcJs = ["./src/app.js"];
+var srcJs = ["src/**/*.module.js", "src/**/*.js"];
 
-gulp.task('default', ['vendor','compress', 'sass', 'html']);
+gulp.task('default', ['vendorJs', 'vendorCss','compressJs', 'sass', 'html', "html-templates"]);
 
 gulp.task('sass', function () {
 	gulp.src(srcSass)
@@ -27,14 +28,26 @@ gulp.task('html', function() {
 		.pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('vendor', function() {
+gulp.task("html-templates", function() {
+	return gulp.src(srcHtmlTemplates)
+		.pipe(gulp.dest("./dist/"));
+});
+
+gulp.task('vendorJs', function() {
 	return gulp.src(vendorSrcJs)
 		.pipe(concat('vendor.js'))
 		.pipe(gulp.dest('./dist/vendor/'));
 });
 
-gulp.task('compress', function() {
-	return gulp.src('./src/app.js')
+gulp.task('vendorCss', function() {
+	return gulp.src(vendorSrcCss)
+		.pipe(concat('vendor.css'))
+		.pipe(gulp.dest('./dist/vendor/'));
+});
+
+gulp.task('compressJs', function() {
+	return gulp.src(srcJs)
 		.pipe(uglify())
+		.pipe(concat("app.min.js"))
 		.pipe(gulp.dest('./dist/'));
 });
