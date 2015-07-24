@@ -1,0 +1,1 @@
+var footballApp = angular.module("footballApp", ["ui.router", "ui.bootstrap"]);
