@@ -1,3 +1,5 @@
-<li>{{ data.name }}, {{ data.sename }}
-    <ul><team ng-repeat="t in data.teamList" data="t"></team></ul>
+<li class="championship-item">
+	<img class="championship-logo" ng-src="http://footballbet.com.ua/table/embl/{{data.image}}" alt="{{data.name}}"/>
+	<div class="championship-camption">{{ data.name }}, {{ data.sename }}</div>
+    <ul><team ng-repeat="t in data.teamList" data="t" style="display: none;"></team></ul>
 </li>

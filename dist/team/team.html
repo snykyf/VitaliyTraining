@@ -1,1 +1,4 @@
-<li>{{ data.city }}</li>
+<li class="team-item">
+	<img ng-src="http://footballbet.com.ua/teams/embl/{{ data.emblema }}" class="team-logo" alt="{{ data.name }}"/>
+	<div>{{ data.name == data.city ? data.name : data.name + ", " + data.city }}</div>
+</li>

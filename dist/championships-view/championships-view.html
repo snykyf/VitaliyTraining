@@ -1,8 +1,24 @@
-<div class="jumbotron text-center">
-	<h1>The Teams Page</h1>
+<div class="row">
+	<div class="col-md-8" ng-class="{ 'col-md-offset-2': !selectedChampionship }">
+		<div class="panel panel-default">
+		  <div class="panel-heading">Championships</div>
+		  <div class="panel-body">
+			<ul class="row championship-list">	
+			   <championship ng-repeat="c in championshipList" data="c" class="col-md-4" ng-click="selectChampionship(c)" ng-class="{selected: c.id_championship == selectedChampionship.id_championship }">
+			   </championship>
+			</ul>
+		  </div>
+		</div>
+	</div>
+	<div class="col-md-4 hidden-sm hidden-xs" ng-if="selectedChampionship">
+		<div class="panel panel-default">
+		  <div class="panel-heading">Teams attending the championship</div>
+		  <div class="panel-body">
+			<ul class="team-list">
+				<team ng-repeat="t in selectedChampionship.teamList" data="t" class="col-md-12"></team>
+			</ul>
+		  </div>
+		</div>
+	</div>
 </div>
 
-<ul>	
-   <championship ng-repeat="c in championshipList" data="c">
-   </championship>
-</ul>

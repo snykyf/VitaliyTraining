@@ -1,6 +1,11 @@
-footballApp.controller('ChampionshipViewCtrl', ['$scope', 'dataService', function ($scope, dataService) {
+footballApp.controller('ChampionshipsViewCtrl', ['$scope', 'dataService', function ($scope, dataService) {
+	$scope.selectedChampionship = null;
+	
     dataService.getChampionships().then(function(championshipList){
         $scope.championshipList = championshipList;
-        console.log(championshipList);
-		});
+	});
+	
+	$scope.selectChampionship = function(c, e) {
+		$scope.selectedChampionship = c;		
+	}
 }]);

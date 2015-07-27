@@ -24,7 +24,20 @@ footballApp.factory('dataService',['$http', '$q', '$filter', function($http, $q,
 	}
 
 	dataObj.getTeams = function() {
-	    return $http.get(teamsUrl);
+		var deferred = $q.defer();
+		
+	    $http.get(teamsUrl).then(function(response){
+			var teamList = response.data.result,
+				teamListObj = {};
+			
+			 for (var j = 0; j < teamList.length; j++) {
+				//if (teamList[j].
+			 }			
+			 
+			 deferred.resolve(teamList);
+		});
+		
+		 return deferred.promise;
 	}
 
 	dataObj.getMatches = function() {

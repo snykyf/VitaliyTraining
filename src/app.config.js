@@ -12,11 +12,12 @@ footballApp.config(['$stateProvider', '$urlRouterProvider',function($stateProvid
 		})
 		.state('teams', {
 			url: '/teams',
-			templateUrl: '../dist/teams-view/teams-view.html'
+			templateUrl: '../dist/teams-view/teams-view.html',
+			controller: 'TeamsViewCtrl'
 		})
 		.state('championships', {
 			url: '/championships',
 			templateUrl: '../dist/championships-view/championships-view.html',
-			controller: 'ChampionshipViewCtrl'
+			controller: 'ChampionshipsViewCtrl'
 		});
 }]);
