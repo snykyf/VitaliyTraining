@@ -1,10 +1,10 @@
 footballApp.directive('championship', function() {
 	return {
 		restrict: 'E',
-		templateUrl: '../dist/championship/championship.html',
+		templateUrl: 'championship/championship.html',
 		replace: true,
 		scope: {
-			data: '='
+			championship: '='
 		}
 	}
 })

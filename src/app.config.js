@@ -4,20 +4,20 @@ footballApp.config(['$stateProvider', '$urlRouterProvider',function($stateProvid
 	$stateProvider
 		.state('dashboard', {
 			url: '/dashboard',
-			templateUrl: '../dist/dashboard-view/dashboard-view.html'
+			templateUrl: 'dashboard-view/dashboard-view.html'
 		})
 		.state('matches', {
 			url: '/matches',
-			templateUrl: '../dist/matches-view/matches-view.html'
+			templateUrl: 'matches-view/matches-view.html'
 		})
 		.state('teams', {
 			url: '/teams',
-			templateUrl: '../dist/teams-view/teams-view.html',
+			templateUrl: 'teams-view/teams-view.html',
 			controller: 'TeamsViewCtrl'
 		})
 		.state('championships', {
 			url: '/championships',
-			templateUrl: '../dist/championships-view/championships-view.html',
+			templateUrl: 'championships-view/championships-view.html',
 			controller: 'ChampionshipsViewCtrl'
 		});
 }]);

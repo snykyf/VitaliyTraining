@@ -1,5 +1,5 @@
-footballApp.controller('TeamsViewCtrl', ['$scope', 'dataService', function ($scope, dataService) {
-    dataService.getTeams().then(function(teamList){
+footballApp.controller('TeamsViewCtrl', ['$scope', 'DataService', function ($scope, DataService) {
+    DataService.getTeams().then(function(teamList){
         $scope.teamList = teamList;
 	});
 }]);

@@ -4,11 +4,8 @@
 	.championship-item {
 		text-align: center;
 		margin-top: 10px;
-		
-		&:hover {
-			cursor: pointer;
-		}
-		
+		cursor: pointer;
+
 		&.selected {
 			font-weight: bold;
 		}

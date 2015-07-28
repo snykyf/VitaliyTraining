@@ -2,9 +2,8 @@
   list-style-type: none; }
   .championship-list .championship-item {
     text-align: center;
-    margin-top: 10px; }
-    .championship-list .championship-item:hover {
-      cursor: pointer; }
+    margin-top: 10px;
+    cursor: pointer; }
     .championship-list .championship-item.selected {
       font-weight: bold; }
     .championship-list .championship-item .championship-logo {
