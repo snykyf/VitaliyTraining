@@ -1,3 +1,9 @@
-<div class="jumbotron text-center">
-	<h1>The Teams Page</h1>
+<div class="panel panel-default">
+  <div class="panel-heading">Teams</div>
+  <div class="panel-body">
+	<ul class="row team-list">	
+	   <team ng-repeat="teamItem in teamList" team="teamItem" class="col-md-3">
+	   </team>
+	</ul>
+  </div>
 </div>

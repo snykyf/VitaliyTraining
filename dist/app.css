@@ -1,42 +1,19 @@
-@charset "UTF-8";
-/**
- *
- * Licensed Materials – Property of IBM
- *
- * ibmda.scss
- *
- * (C) Copyright IBM Corporation 2015.
- * U.S. Government Users Restricted Rights:  Use, duplication or disclosure
- * restricted by GSA ADP Schedule Contract with IBM Corp.
- *
- */
-html {
-  height: 100%;
-  -ms-overflow-style: scrollbar; }
+.championship-list {
+  list-style-type: none; }
+  .championship-list .championship-item {
+    text-align: center;
+    margin-top: 10px;
+    cursor: pointer; }
+    .championship-list .championship-item.selected {
+      font-weight: bold; }
+    .championship-list .championship-item .championship-logo {
+      height: 120px;
+      margin: 10px 0; }
 
-body {
-  padding-top: 0;
-  height: 100%;
-  overflow: hidden; }
-
-a {
-  cursor: pointer; }
-
-section[ui-view] {
-  height: 100%; }
-
-.overlay-bee {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 9999; }
-  .overlay-bee x1-loading-bee svg {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto; }
+.team-list {
+  list-style-type: none; }
+  .team-list .team-item {
+    margin: 10px 0;
+    text-align: center; }
+  .team-list .team-logo {
+    height: 60px; }
