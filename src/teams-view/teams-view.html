@@ -1,9 +1,20 @@
-<div class="panel panel-default">
-  <div class="panel-heading">Teams</div>
-  <div class="panel-body">
-	<ul class="row team-list">	
-	   <team ng-repeat="teamItem in teamList" team="teamItem" class="col-md-3">
-	   </team>
-	</ul>
-  </div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+		  <div class="panel-heading">Teams
+			  <input type="text" class="pull-right" placeholder="Search.." ng-model="query"/>
+		  </div>
+		  <div class="panel-body">
+			<ul class="country-list">
+				<li ng-repeat="(country, teamList) in teamListObj">
+					<h4>{{ country }}</h4>
+					<ul class="row team-list">
+						<team ng-repeat="teamItem in teamList" team="teamItem" class="col-md-3">
+						</team>
+					</ul>
+				</li>
+			</ul>
+		  </div>
+		</div>
+	</div>
 </div>

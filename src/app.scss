@@ -1,5 +1,6 @@
 .championship-list {
 	list-style-type: none;
+	padding: 0;
 	
 	.championship-item {
 		text-align: center;
@@ -18,14 +19,25 @@
 }
 
 .team-list {
+	padding: 0;
 	list-style-type: none;
 	
 	.team-item {
 		margin: 10px 0;
 		text-align: center;
 	}
-	
+
 	.team-logo {
 		height: 60px;
+	}
+}
+
+.country-list {
+	padding: 0;
+	list-style-type: none;
+	text-align: center;
+	
+	h4 {
+		margin-bottom: 40px;
 	}
 }

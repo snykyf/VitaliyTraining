@@ -5,7 +5,7 @@
 		  <div class="panel-body">
 			<ul class="row championship-list">	
 			   <championship ng-repeat="championshipItem in championshipList"
-					   championship="championshipItem" class="col-md-4"
+					   championship="championshipItem" class="col-md-4 col-sm-6"
 					   ng-click="selectChampionship(championshipItem)" ng-class="{selected: championshipItem.id_championship == selectedChampionship.id_championship }">
 			   </championship>
 			</ul>

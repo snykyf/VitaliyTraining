@@ -15,9 +15,19 @@ footballApp.config(['$stateProvider', '$urlRouterProvider',function($stateProvid
 			templateUrl: 'teams-view/teams-view.html',
 			controller: 'TeamsViewCtrl'
 		})
+		.state('team', {
+			url: '/teams/:teamId',
+			templateUrl: 'teams-view/team-view.html',
+			controller: 'TeamsViewCtrl'
+		})
 		.state('championships', {
 			url: '/championships',
 			templateUrl: 'championships-view/championships-view.html',
+			controller: 'ChampionshipsViewCtrl'
+		})
+		.state('championship', {
+			url: '/championships/:championshipsId',
+			templateUrl: 'championships-view/championship-view.html',
 			controller: 'ChampionshipsViewCtrl'
 		});
 }]);
