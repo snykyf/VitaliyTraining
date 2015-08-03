@@ -15,9 +15,9 @@ var vendorSrcCss = ["bower_components/bootstrap/dist/css/bootstrap.min.css"];
 var srcHtmlTemplates = ["src/index.html","src/**/*.html"];
 var srcSass = ["./src/**/*.scss"];
 var srcJs = ["src/**/*.module.js", "src/**/*.js"];
-var srcCss = ["./dist/**/*.css"]
+var srcFont = ["bower_components/bootstrap/dist/fonts/*"];
 
-gulp.task('default', ['vendorJs', 'vendorCss','compressJs', 'sass', 'compressHtml']);
+gulp.task('default', ['vendorJs', 'vendorCss','compressJs', 'sass', 'compressHtml', 'font']);
 
 gulp.task('sass', function () {
 	gulp.src(srcSass)
@@ -54,4 +54,9 @@ gulp.task('compressJs', function() {
 		.pipe(uglify())
 		.pipe(concat("app.js"))
 		.pipe(gulp.dest('./dist/'));
+});
+
+gulp.task("font", function() {
+	return gulp.src(srcFont)
+		.pipe(gulp.dest('./dist/vendor/fonts/'));
 });
