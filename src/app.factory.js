@@ -154,20 +154,64 @@ angular
 			}
 			else {
 				$http.get(RouteConstants.matchesUrl).then(function(response) {
-					var matchList = response.data.result,
-						matchListObj = {}, match;
+					dataObj.getTeams().then(function(teamList){
+						var matchList = response.data.result,
+							matchListObj = {}, match;
 
-					for(var j = 0; j < matchList.length; j++) {
-						match = matchList[j];
+						for(var j = 0; j < matchList.length; j++) {
+							match = matchList[j];
 
-						matchListObj[match.title] = matchListObj[match.title] ? matchListObj[match.title] : [];
-						matchListObj[match.title].push(match);
-					}
+							matchListObj[match.title] = matchListObj[match.title] ? matchListObj[match.title] : [];
+							match.logoImage = RouteConstants.teamLogoUrl + match.image;
 
-					cache.put(matchesKey, matchListObj);
-					deferred.resolve(matchListObj);
+							for( var n = 0; n < teamList.length; n++) {
+								if (match.idFirstTeam === teamList[n].id_teams ) {
+									match.firstTeamImage = teamList[n].logoImage;
+								}
+								if (match.idSecondTeam === teamList[n].id_teams ) {
+									match.secondTeamImage = teamList[n].logoImage;
+								}
+							}
+							matchListObj[match.title].push(match);
+						}
+
+						cache.put(matchesKey, matchListObj);
+						deferred.resolve(matchListObj);
+					});
 				});
 			}
+
+			return deferred.promise;
+		}
+
+		dataObj.sortTeamList = function(teamListObj, field, reverse) {
+			for (var country in teamListObj) {
+				teamListObj[country] = $filter('orderBy')(teamListObj[country], field, reverse);
+			}
+
+			return teamListObj;
+		}
+
+		dataObj.getStatistics = function() {
+			var deferred = $q.defer(), statistics = {}, tasks = [];
+
+			tasks.push(dataObj.getTeams().then(function(teamList){
+				statistics.totalNumberOfTeams = teamList.length;
+			}));
+			tasks.push(dataObj.getChampionships().then(function(championshipsList){
+				statistics.totalNumberOfChampionships = championshipsList.length;
+			}));
+			tasks.push(dataObj.getMatches().then(function(matchesListObj){
+				var totalNumberOfMatches = 0;
+				for(var country in matchesListObj) {
+					totalNumberOfMatches += matchesListObj[country].length;
+				}
+				statistics.totalNumberOfMatches = totalNumberOfMatches;
+			}));
+
+			$q.all(tasks).then(function(){
+				deferred.resolve(statistics);
+			})
 
 			return deferred.promise;
 		}

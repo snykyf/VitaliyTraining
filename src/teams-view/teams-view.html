@@ -1,15 +1,20 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="panel panel-default">
-			<div class="panel-heading">Teams <input type="text" class="pull-right"
-					placeholder="Search.." ng-model="query"/>
+			<div class="panel-heading"><span class="fa fa-users"></span>&nbsp;Teams
+				<div class="pull-right">
+					<input type="text" placeholder="Search.." id="search-txt" ng-model="query"/>
+					<button ng-click="sortTeamList()" class="pull-right">
+						<span ng-class="['fa', reverse ? 'fa-sort-alpha-desc' : 'fa-sort-alpha-asc' ]"></span> Sort
+					</button>
+				</div>
 			</div>
 			<div class="panel-body">
 				<ul class="country-list">
 					<li ng-repeat="(country, teamList) in teamListObj">
 						<h4>{{ ::country }}</h4>
 						<div class="row team-list">
-							<a href="#/teams/{{ ::teamItem.id_teams }}"  ng-repeat="teamItem in teamList track by teamItem.id_teams">
+							<a href="#/teams/{{ ::teamItem.id_teams }}" ng-repeat="teamItem in teamList track by teamItem.id_teams">
 								<team team-model="teamItem"
 										class="col-md-3"></team>
 							</a>

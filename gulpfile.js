@@ -6,12 +6,12 @@ var minifyHTML = require('gulp-minify-html');
 var minifyCss = require('gulp-minify-css');
 
 var vendorSrcJs = [
-	"bower_components/jquery/dist/jquery.min.js",
 	"bower_components/angular/angular.min.js",
 	"bower_components/ui-router/release/angular-ui-router.min.js",
 	"bower_components/angular-bootstrap/ui-bootstrap.min.js"
 ];
-var vendorSrcCss = ["bower_components/bootstrap/dist/css/bootstrap.min.css"];
+var vendorSrcCss = ["bower_components/bootstrap/dist/css/bootstrap.min.css",
+					"bower_components/font-awesome/css/font-awesome.min.css"];
 var srcHtmlTemplates = ["src/index.html","src/**/*.html"];
 var srcSass = ["./src/**/*.scss"];
 var srcJs = ["src/**/*.module.js", "src/**/*.js"];

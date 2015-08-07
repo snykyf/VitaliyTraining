@@ -8,9 +8,16 @@ angular
 			});
 		}//or list of all available teams
 		else {
+			$scope.reverse = true;
+
 			DataService.getTeamsByCountry().then(function(teamListObj){
 				$scope.teamListObj = teamListObj;
 			});
+
+			$scope.sortTeamList = function() {
+				$scope.teamListObj = DataService.sortTeamList($scope.teamListObj, 'name', $scope.reverse);
+				$scope.reverse = !$scope.reverse;
+			}
 
 			/* TODO: replace watch with html filter */
 			$scope.$watch('query', function(newVal, oldVal) {

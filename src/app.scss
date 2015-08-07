@@ -1,3 +1,11 @@
+body {
+	font-family: "Open Sans";
+}
+
+.panel {
+	border-radius: 0;
+}
+
 .championship-list {
 	list-style-type: none;
 	padding: 0;
@@ -50,4 +58,12 @@
 	.match-item {
 		margin: 10px 0;
 	}
+}
+
+#search-txt {
+	margin-right: 2px;
+}
+
+.match-item img {
+	height: 18px;
 }

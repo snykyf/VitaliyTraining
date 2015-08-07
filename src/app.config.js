@@ -6,7 +6,8 @@ angular
 		$stateProvider
 			.state('dashboard', {
 				url: '/dashboard',
-				templateUrl: 'dashboard-view/dashboard-view.html'
+				templateUrl: 'dashboard-view/dashboard-view.html',
+				controller: 'DashboardViewCtrl'
 			})
 			.state('matches', {
 				url: '/matches',
