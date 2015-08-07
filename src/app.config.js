@@ -30,7 +30,7 @@ angular
 				controller: 'ChampionshipsViewCtrl'
 			})
 			.state('championship', {
-				url: '/championships/:championshipsId',
+				url: '/championships/:championshipId',
 				templateUrl: 'championships-view/championship-view.html',
 				controller: 'ChampionshipsViewCtrl'
 			});

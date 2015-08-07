@@ -3,5 +3,6 @@
 	<div class="championship-caption">{{  championshipModel.name === championshipModel.sename ||
 										  championshipModel.sename === '' ?
 										  championshipModel.name :  championshipModel.name + ", " + championshipModel.sename }}</div>
-	<a href="#/championships/{{ ::championshipModel.id_championship}}" class="visible-sm visible-xs" alt="View teams">View teams</a>
+	<a ui-sref="championship({championshipId: championshipModel.id_championship})"
+			class="visible-sm visible-xs" alt="View teams">View teams</a>
 </li>

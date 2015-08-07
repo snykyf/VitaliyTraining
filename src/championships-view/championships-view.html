@@ -17,7 +17,8 @@
 			<div class="panel-heading">Teams attending the championship</div>
 			<div class="panel-body">
 				<div class="team-list">
-					<a href="#/teams/{{ ::teamItem.id_teams }}" ng-repeat="teamItem in selectedChampionship.teamList track by teamItem.id_teams">
+					<a ui-sref="team({teamId: teamItem.id_teams})"
+							ng-repeat="teamItem in selectedChampionship.teamList track by teamItem.id_teams">
 						<team team-model="teamItem" class="col-md-12"></team>
 					</a>
 				</div>
