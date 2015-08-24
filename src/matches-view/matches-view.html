@@ -1,3 +1,12 @@
-<div class="jumbotron text-center">
-	<h1>The Teams Page</h1>
+<div class="row">
+	<div class="col-md-12 text-center">
+		<div ng-repeat="(title, matchList) in matchesListObj" >
+			<h4><img class="img" ng-src="{{ ::logoImage }}"/>{{ ::title }}</h4>
+			<ul class="match-list">
+				<li ng-repeat="matchItem in matchList track by matchItem.idMatch">
+					<match match-model="matchItem"></match>
+				</li>
+			</ul>
+		</div>
+	</div>
 </div>

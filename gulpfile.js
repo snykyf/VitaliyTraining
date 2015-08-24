@@ -2,35 +2,39 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
+var minifyHTML = require('gulp-minify-html');
+var minifyCss = require('gulp-minify-css');
 
 var vendorSrcJs = [
-	"bower_components/jquery/dist/jquery.min.js",
 	"bower_components/angular/angular.min.js",
 	"bower_components/ui-router/release/angular-ui-router.min.js",
 	"bower_components/angular-bootstrap/ui-bootstrap.min.js"
 ];
-var vendorSrcCss = ["bower_components/bootstrap/dist/css/bootstrap.min.css"];
-var srcHtml = ["src/index.html"];
-var srcHtmlTemplates = ["src/**/*.html"];
+var vendorSrcCss = ["bower_components/bootstrap/dist/css/bootstrap.min.css",
+					"bower_components/font-awesome/css/font-awesome.min.css"];
+var srcHtmlTemplates = ["src/index.html","src/**/*.html"];
 var srcSass = ["./src/**/*.scss"];
 var srcJs = ["src/**/*.module.js", "src/**/*.js"];
+var srcFont = ["bower_components/bootstrap/dist/fonts/*"];
 
-gulp.task('default', ['vendorJs', 'vendorCss','compressJs', 'sass', 'html', "html-templates"]);
+gulp.task('default', ['vendorJs', 'vendorCss','compressJs', 'sass', 'compressHtml', 'font']);
 
 gulp.task('sass', function () {
 	gulp.src(srcSass)
 		.pipe(sass().on('error', sass.logError))
+		.pipe(minifyCss({compatibility: 'ie8'}))
 		.pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('html', function() {
-	return gulp.src(srcHtml)
-		.pipe(gulp.dest('./dist/'));
-});
-
-gulp.task("html-templates", function() {
-	return gulp.src(srcHtmlTemplates)
-		.pipe(gulp.dest("./dist/"));
+gulp.task('compressHtml', function() {
+  var opts = {
+    conditionals: true,
+    spare:true
+  };
+ 
+  return gulp.src(srcHtmlTemplates)
+    .pipe(minifyHTML(opts))
+    .pipe(gulp.dest('./dist/'));
 });
 
 gulp.task('vendorJs', function() {
@@ -48,6 +52,11 @@ gulp.task('vendorCss', function() {
 gulp.task('compressJs', function() {
 	return gulp.src(srcJs)
 		.pipe(uglify())
-		.pipe(concat("app.min.js"))
+		.pipe(concat("app.js"))
 		.pipe(gulp.dest('./dist/'));
+});
+
+gulp.task("font", function() {
+	return gulp.src(srcFont)
+		.pipe(gulp.dest('./dist/vendor/fonts/'));
 });

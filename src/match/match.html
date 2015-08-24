@@ -1,0 +1,13 @@
+<div class="match-item row">
+	<span class="col-xs-4"><a alt="{{::matchModel.firstTeam}}"
+			href="#/teams/{{ ::matchModel.idFirstTeam }}"><img
+			ng-src="{{ matchModel.firstTeamImage }}">{{
+		::matchModel.firstTeam }}</a></span>
+	<span class="col-xs-1">{{ ::matchModel.firstTeamGoal }}</span>
+	<span class="col-xs-2"> &ndash; </span>
+	<span class="col-xs-1">{{ ::matchModel.secondTeamGoal }}</span>
+	<span
+			class="col-xs-4"><a href="#/teams/{{ ::matchModel.idSecondTeam }}"><img
+			ng-src="{{ matchModel.secondTeamImage }}">{{ ::matchModel.secondTeam
+		}} </a></span>
+</div>

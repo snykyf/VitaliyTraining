@@ -1,5 +1,14 @@
+body {
+	font-family: "Open Sans";
+}
+
+.panel {
+	border-radius: 0;
+}
+
 .championship-list {
 	list-style-type: none;
+	padding: 0;
 	
 	.championship-item {
 		text-align: center;
@@ -18,14 +27,43 @@
 }
 
 .team-list {
+	padding: 0;
 	list-style-type: none;
 	
 	.team-item {
 		margin: 10px 0;
 		text-align: center;
 	}
-	
+
 	.team-logo {
 		height: 60px;
 	}
+}
+
+.country-list {
+	padding: 0;
+	list-style-type: none;
+	text-align: center;
+	
+	h4 {
+		margin-top: 40px;
+	}
+}
+
+.match-list {
+	padding: 0;
+	margin-top: 40px;
+	list-style-type: none;
+
+	.match-item {
+		margin: 10px 0;
+	}
+}
+
+#search-txt {
+	margin-right: 2px;
+}
+
+.match-item img {
+	height: 18px;
 }

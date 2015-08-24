@@ -1,4 +1,1 @@
-<li class="championship-item">
-	<img class="championship-logo" ng-src="{{ championship.logoImage }}" alt="{{ championship.name }}"/>
-	<div class="championship-caption">{{ championship.name }}, {{ championship.sename }}</div>
-</li>
+<li class=championship-item><img class=championship-logo ng-src="{{ ::championshipModel.logoImage }}" alt="{{ ::championshipModel.name }}"><div class=championship-caption>{{ championshipModel.name === championshipModel.sename || championshipModel.sename === '' ? championshipModel.name : championshipModel.name + ", " + championshipModel.sename }}</div><a ui-sref="championship({championshipId: championshipModel.id_championship})" class="visible-sm visible-xs" alt="View teams">View teams</a></li>

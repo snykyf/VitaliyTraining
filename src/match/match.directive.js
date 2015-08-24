@@ -1,12 +1,12 @@
 angular
 	.module("footballApp")
-	.directive('team', function() {
+	.directive('match', function() {
 		return {
 			restrict: 'E',
-			templateUrl: 'team/team.html',
+			templateUrl: 'match/match.html',
 			replace: true,
 			scope: {
-				'teamModel': '='
+				matchModel: '='
 			}
 		}
 })
